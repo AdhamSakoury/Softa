@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SOFTA - Modern Tech Solutions</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3366CC",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E293B",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        'xl': "1rem",
+                        '2xl': "1.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        .glass-effect {
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .dark .glass-effect {
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3366CC 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- ==============================
+         NAVBAR
+    ============================== -->
+    <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo + Nav Links -->
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="font-display font-bold text-2xl tracking-tight text-primary">SOFTA</span>
+                    </div>
+
+                    <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+                        <a class="hover:text-primary transition-colors" href="#">ProEase Hup ERP</a>
+                        <a class="hover:text-primary transition-colors" href="#">Hosting</a>
+                        <a class="hover:text-primary transition-colors" href="#">Services</a>
+                        <a class="hover:text-primary transition-colors" href="#">Resources</a>
+                        <a class="hover:text-primary transition-colors" href="#">Company</a>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-4">
+                    <button class="flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-400">
+                        <span class="material-symbols-outlined text-lg">language</span>
+                        EN
+                    </button>
+                    <button class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20">
+                        APPS
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ==============================
+         DOMAIN SEARCH
+    ============================== -->
+    <section class="bg-primary py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+
+                    <div class="flex-shrink-0">
+                        <h3 class="text-white font-display font-bold text-xl md:text-2xl">Find Your Domain</h3>
+                        <p class="text-blue-100 text-sm mt-1">Check availability in seconds</p>
+                    </div>
+
+                    <form class="flex-1 w-full flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <input
+                                class="w-full bg-white text-slate-900 border-none rounded-xl px-6 py-4 text-lg focus:ring-4 focus:ring-blue-400/50 outline-none placeholder:text-slate-400"
+                                placeholder="yourname.com"
+                                type="text"
+                            />
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
+                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-[10px] font-bold">.COM</span>
+                                <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-[10px] font-bold">.NET</span>
+                            </div>
+                        </div>
+                        <button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors shadow-lg flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined">search</span>
+                            Check Availability
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         HERO / OFFERS
+    ============================== -->
+    <section class="relative pt-12 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Left: Headline + Countdown -->
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-primary rounded-full font-semibold text-sm mb-6">
+                        <span class="material-symbols-outlined text-sm">event</span>
+                        February Offers
+                    </div>
+
+                    <h1 class="font-display text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        <span class="gradient-text">10% Discount</span> Month
+                    </h1>
+
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl">
+                        Get 10% off our premium hosting and software services throughout February.
+                        Elevate your business with industry-leading performance.
+                    </p>
+
+                    <!-- Countdown Timer -->
+                    <div class="bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 mb-8">
+                        <div class="grid grid-cols-4 gap-4 text-center">
+                            <div>
+                                <div class="text-4xl font-bold text-primary">09</div>
+                                <div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Days</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary">03</div>
+                                <div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Hours</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary">53</div>
+                                <div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Minutes</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-primary">25</div>
+                                <div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature List -->
+                    <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-500">check_circle</span>
+                            99.9% Uptime Guarantee
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-500">check_circle</span>
+                            24/7 Premium Support
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-500">check_circle</span>
+                            Free SSL Certificates
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-500">check_circle</span>
+                            Automated Daily Backups
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Offer Cards -->
+                <div class="lg:col-span-5 space-y-4">
+
+                    <!-- Card: Business Email -->
+                    <div class="group bg-card-light dark:bg-card-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">mail</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">Business Email - Premium</h3>
+                                    <p class="text-sm text-slate-500">10GB Storage, Active Sync, Secure access.</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xl font-bold text-primary">EGP 1255.52</div>
+                                <div class="text-xs text-slate-400 line-through">EGP 1395.02</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-green-100 dark:bg-green-900/30 text-green-700 text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[12px]">verified</span> SOFTA10
+                                </span>
+                                <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">
+                                    10% OFF
+                                </span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                                Get It Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card: Go Digital -->
+                    <div class="group bg-card-light dark:bg-card-dark p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-600">
+                                    <span class="material-symbols-outlined">rocket_launch</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">Go Digital - Ramp Up</h3>
+                                    <p class="text-sm text-slate-500">Web hosting, Business E-mail, Free domain.</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xl font-bold text-primary">EGP 6749.10</div>
+                                <div class="text-xs text-slate-400 line-through">EGP 7499</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="bg-green-100 dark:bg-green-900/30 text-green-700 text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[12px]">verified</span> SOFTA10
+                                </span>
+                                <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">
+                                    10% OFF
+                                </span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">
+                                Get It Now
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Blob -->
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary opacity-5 blur-[120px] rounded-full pointer-events-none"></div>
+    </section>
+
+
+    <!-- ==============================
+         HOSTING PLANS
+    ============================== -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-4">Choose Your Hosting Plan</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    Select the perfect hosting solution for your needs with our comprehensive packages
+                </p>
+
+                <!-- Plan Type Tabs -->
+                <div class="inline-flex p-1 bg-slate-200 dark:bg-slate-800 rounded-xl mt-12 mb-8">
+                    <button class="px-6 py-2 bg-primary text-white rounded-lg shadow-sm font-semibold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">dns</span>
+                        Shared Hosting
+                    </button>
+                    <button class="px-6 py-2 text-slate-600 dark:text-slate-400 font-semibold flex items-center gap-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-sm">laptop_mac</span>
+                        Go Digital
+                    </button>
+                    <button class="px-6 py-2 text-slate-600 dark:text-slate-400 font-semibold flex items-center gap-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                        Email Hosting
+                    </button>
+                </div>
+            </div>
+
+            <!-- Plan Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Plan: Linux Plus -->
+                <div class="relative bg-card-light dark:bg-card-dark p-8 rounded-2xl border border-slate-200 dark:border-slate-800 group hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 px-3 py-1 bg-red-500 text-white text-[10px] font-bold rounded uppercase">
+                        10% OFF
+                    </div>
+                    <div class="flex justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-5xl">deployed_code</span>
+                    </div>
+                    <h3 class="text-center font-bold text-xl mb-1">Linux - Plus</h3>
+                    <div class="text-center mb-6">
+                        <div class="text-2xl font-bold">
+                            EGP 1497.83 <span class="text-sm font-normal text-slate-500">/year</span>
+                        </div>
+                        <div class="text-sm text-slate-400 line-through">EGP 1664.26</div>
+                        <span class="inline-flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-700 text-[10px] px-2 py-0.5 rounded font-bold mt-2">
+                            SOFTA10 <span class="material-symbols-outlined text-sm">content_copy</span>
+                        </span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400 mb-8 border-t border-slate-100 dark:border-slate-800 pt-6">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 2 GB Storage</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited Bandwidth</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited FTP Accounts</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 2 x MySQL databases</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 50 x Email Mailboxes</li>
+                    </ul>
+                    <button class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                        Get It Now
+                    </button>
+                </div>
+
+                <!-- Plan: Linux Ultimate (Popular) -->
+                <div class="relative bg-card-light dark:bg-card-dark p-8 rounded-2xl border-2 border-primary shadow-2xl scale-105 z-10">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-primary text-white text-[10px] font-bold rounded-full uppercase">
+                        Most Popular
+                    </div>
+                    <div class="absolute top-0 right-8 -translate-y-1/2 px-3 py-1 bg-red-500 text-white text-[10px] font-bold rounded uppercase">
+                        10% OFF
+                    </div>
+                    <div class="flex justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-5xl">shield_person</span>
+                    </div>
+                    <h3 class="text-center font-bold text-xl mb-1">Linux - Ultimate</h3>
+                    <div class="text-center mb-6">
+                        <div class="text-2xl font-bold">
+                            EGP 2590.13 <span class="text-sm font-normal text-slate-500">/year</span>
+                        </div>
+                        <div class="text-sm text-slate-400 line-through">EGP 2877.93</div>
+                        <span class="inline-flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-700 text-[10px] px-2 py-0.5 rounded font-bold mt-2">
+                            SOFTA10 <span class="material-symbols-outlined text-sm">content_copy</span>
+                        </span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400 mb-8 border-t border-slate-100 dark:border-slate-800 pt-6">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 5 GB Storage</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited Bandwidth</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited FTP Accounts</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 5 x MySQL databases</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 100 x Email Mailboxes</li>
+                    </ul>
+                    <button class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30">
+                        Get It Now
+                    </button>
+                </div>
+
+                <!-- Plan: Linux Power -->
+                <div class="relative bg-card-light dark:bg-card-dark p-8 rounded-2xl border border-slate-200 dark:border-slate-800 group hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 right-8 -translate-y-1/2 px-3 py-1 bg-red-500 text-white text-[10px] font-bold rounded uppercase">
+                        10% OFF
+                    </div>
+                    <div class="flex justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-5xl">bolt</span>
+                    </div>
+                    <h3 class="text-center font-bold text-xl mb-1">Linux - Power</h3>
+                    <div class="text-center mb-6">
+                        <div class="text-2xl font-bold">
+                            EGP 5317.63 <span class="text-sm font-normal text-slate-500">/year</span>
+                        </div>
+                        <div class="text-sm text-slate-400 line-through">EGP 5908.48</div>
+                        <span class="inline-flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-700 text-[10px] px-2 py-0.5 rounded font-bold mt-2">
+                            SOFTA10 <span class="material-symbols-outlined text-sm">content_copy</span>
+                        </span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400 mb-8 border-t border-slate-100 dark:border-slate-800 pt-6">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 10 GB Storage</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited Bandwidth</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited FTP Accounts</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> Unlimited MySQL databases</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500 text-sm">check</span> 200 x Email Mailboxes</li>
+                    </ul>
+                    <button class="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                        Get It Now
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         PROEASE HUB ERP
+    ============================== -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
+
+                <!-- Text -->
+                <div>
+                    <span class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold mb-6">
+                        <span class="material-symbols-outlined text-xs">info</span>
+                        Enterprise Solution
+                    </span>
+                    <h2 class="font-display text-4xl font-bold mb-6">ProEase Hup ERP System</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-10 text-lg leading-relaxed">
+                        Comprehensive enterprise resource planning solutions that streamline your business operations,
+                        from finance and HR to inventory and customer management.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mb-10">
+                        <div>
+                            <div class="text-3xl font-extrabold text-primary">16+</div>
+                            <div class="text-sm font-medium text-slate-500">Active Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-extrabold text-primary">99%</div>
+                            <div class="text-sm font-medium text-slate-500">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                            See More
+                        </button>
+                        <button class="border border-slate-200 dark:border-slate-800 px-8 py-3 rounded-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            Get Demo Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Visual -->
+                <div class="relative">
+                    <div class="aspect-video bg-gradient-to-br from-blue-400 to-primary rounded-3xl relative overflow-hidden shadow-2xl group">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[120px] text-white/20">monitoring</span>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-white p-2 rounded-lg shadow-lg">
+                            <span class="material-symbols-outlined">bolt</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md p-4 rounded-xl border border-white/20">
+                            <div class="flex items-center gap-2 text-white">
+                                <span class="material-symbols-outlined">verified</span>
+                                <span class="font-bold">Real-time Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -z-10 -bottom-8 -right-8 w-64 h-64 bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         CORE EXPERTISE (TABS)
+    ============================== -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">
+                    Our Core Expertise
+                </span>
+                <h2 class="font-display text-4xl font-extrabold mb-4">Driving Innovation with Specialized Services</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    We combine technical excellence with strategic thinking to deliver high-impact digital products.
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto" id="expertise-tabs">
+
+                <!-- Tab Navigation -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+                    <button class="tab-btn px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 bg-primary text-white shadow-lg" data-tab="web-dev">
+                        <span class="material-symbols-outlined">language</span>
+                        Web Development
+                    </button>
+                    <button class="tab-btn px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800" data-tab="mobile-app-dev">
+                        <span class="material-symbols-outlined">smartphone</span>
+                        Mobile App Development
+                    </button>
+                    <button class="tab-btn px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800" data-tab="ai-automation">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                        AI &amp; Automation
+                    </button>
+                    <button class="tab-btn px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800" data-tab="ui-ux">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        UI/UX Design
+                    </button>
+                </div>
+
+                <!-- Tab Panels -->
+                <div class="bg-card-light dark:bg-card-dark rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden relative">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl"></div>
+
+                    <!-- Panel: Web Development -->
+                    <div class="tab-content active" id="web-dev">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Enterprise-Grade Web Solutions</h3>
+                                <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">
+                                    We build robust, scalable, and secure web applications designed to handle high traffic
+                                    and complex business logic with ease.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">dashboard</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Custom SaaS Platforms</h4>
+                                            <p class="text-sm text-slate-500">Tailored software-as-a-service architectures.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">shopping_cart</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">E-commerce Engines</h4>
+                                            <p class="text-sm text-slate-500">High-conversion online stores and marketplaces.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">api</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">API &amp; Systems Integration</h4>
+                                            <p class="text-sm text-slate-500">Seamless connectivity between your tech stack.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="relative">
+                                <div class="aspect-[4/3] bg-gradient-to-tr from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl">
+                                    <span class="material-symbols-outlined text-[160px] text-white/20">web</span>
+                                    <div class="absolute inset-0 bg-black/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel: Mobile App Development -->
+                    <div class="tab-content" id="mobile-app-dev">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Native &amp; Cross-Platform Mobile Apps</h3>
+                                <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">
+                                    We create high-performance mobile applications that deliver native-quality experiences
+                                    on iOS and Android with unified codebases.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">phone_iphone</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">iOS &amp; Android Apps</h4>
+                                            <p class="text-sm text-slate-500">Optimized native performance for all mobile users.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">animation</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Flutter &amp; React Native</h4>
+                                            <p class="text-sm text-slate-500">Efficient cross-platform development cycles.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                                            <span class="material-symbols-outlined text-xl">install_mobile</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">PWA Solutions</h4>
+                                            <p class="text-sm text-slate-500">Web apps with the reach and feel of native apps.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="relative">
+                                <div class="aspect-[4/3] bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl">
+                                    <span class="material-symbols-outlined text-[160px] text-white/20">smartphone</span>
+                                    <div class="absolute inset-0 bg-black/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel: AI & Automation -->
+                    <div class="tab-content" id="ai-automation">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Empower Business with Intelligence</h3>
+                                <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">
+                                    Transform your data into actionable insights and automate repetitive tasks
+                                    with our custom AI solutions and machine learning workflows.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center flex-shrink-0 text-indigo-600">
+                                            <span class="material-symbols-outlined text-xl">psychology</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Predictive Analytics</h4>
+                                            <p class="text-sm text-slate-500">Forecasting trends and behaviors with ML models.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center flex-shrink-0 text-indigo-600">
+                                            <span class="material-symbols-outlined text-xl">settings_suggest</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Process Automation</h4>
+                                            <p class="text-sm text-slate-500">RPA and smart bots to eliminate manual bottlenecks.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center flex-shrink-0 text-indigo-600">
+                                            <span class="material-symbols-outlined text-xl">forum</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">NLP &amp; LLMs</h4>
+                                            <p class="text-sm text-slate-500">Intelligent chatbots and automated text analysis.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="relative">
+                                <div class="aspect-[4/3] bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl">
+                                    <span class="material-symbols-outlined text-[160px] text-white/20">memory</span>
+                                    <div class="absolute inset-0 bg-black/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel: UI/UX Design -->
+                    <div class="tab-content" id="ui-ux">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-6">Strategic UI/UX Design</h3>
+                                <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">
+                                    We design intuitive experiences that resonate with users. From research to prototyping,
+                                    we ensure every pixel serves a strategic purpose.
+                                </p>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center flex-shrink-0 text-emerald-600">
+                                            <span class="material-symbols-outlined text-xl">brush</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Interface Design</h4>
+                                            <p class="text-sm text-slate-500">Visually stunning and consistent design systems.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center flex-shrink-0 text-emerald-600">
+                                            <span class="material-symbols-outlined text-xl">groups</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">User Research</h4>
+                                            <p class="text-sm text-slate-500">Data-driven insights into customer needs and pains.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center flex-shrink-0 text-emerald-600">
+                                            <span class="material-symbols-outlined text-xl">lightbulb</span>
+                                        </span>
+                                        <div>
+                                            <h4 class="font-bold">Digital Strategy</h4>
+                                            <p class="text-sm text-slate-500">Roadmaps for long-term technological success.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="relative">
+                                <div class="aspect-[4/3] bg-gradient-to-tr from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl">
+                                    <span class="material-symbols-outlined text-[160px] text-white/20">palette</span>
+                                    <div class="absolute inset-0 bg-black/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         SUPPORT / PRICING PACKAGES
+    ============================== -->
+    <section class="py-24 bg-white dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">
+                    Support Excellence
+                </span>
+                <h2 class="font-display text-4xl font-extrabold mb-4">Manage all your applications with ease</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    Flexible technical support plans tailored to your business growth and continuity.
+                </p>
+
+                <!-- Billing Period Toggle -->
+                <div class="inline-flex p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl mt-12 mb-4 border border-slate-200 dark:border-slate-700">
+                    <button class="pricing-tab-btn px-8 py-3 rounded-xl font-bold transition-all bg-primary text-white shadow-lg" data-target="monthly">
+                        Monthly
+                    </button>
+                    <button class="pricing-tab-btn px-8 py-3 rounded-xl font-bold transition-all text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700" data-target="semi-annual">
+                        Semi-Annual
+                    </button>
+                    <button class="pricing-tab-btn px-8 py-3 rounded-xl font-bold transition-all text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700" data-target="annual">
+                        Annual
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8" id="pricing-grid">
+
+                <!-- Card: Agile Support -->
+                <div class="bg-card-light dark:bg-card-dark p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col hover:shadow-xl transition-shadow relative overflow-hidden group">
+                    <div class="mb-8">
+                        <h3 class="font-bold text-xl mb-2">Agile Support</h3>
+                        <p class="text-slate-500 text-sm">Essential support for small teams.</p>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-4xl font-extrabold text-slate-900 dark:text-white" id="price-card-1">
+                            $299<span class="text-base font-normal text-slate-500">/mo</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2 opacity-0 transition-opacity" id="save-card-1">Save $0</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                            8/5 Technical Support
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                            24h Response Time
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                            Monthly Performance Review
+                        </li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+                        Subscribe Now
+                    </button>
+                </div>
+
+                <!-- Card: Growth Partner (Popular) -->
+                <div class="bg-card-light dark:bg-card-dark p-8 rounded-3xl border-2 border-primary shadow-2xl flex flex-col relative scale-105 z-10 overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-[10px] font-bold uppercase rounded-bl-xl tracking-widest">
+                        Popular
+                    </div>
+                    <div class="mb-8">
+                        <h3 class="font-bold text-xl mb-2">Growth Partner</h3>
+                        <p class="text-slate-500 text-sm">Scalable support for growing businesses.</p>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-4xl font-extrabold text-slate-900 dark:text-white" id="price-card-2">$1,499</div>
+                        <p class="text-xs text-green-600 dark:text-green-400 mt-2 font-bold" id="save-card-2">Save $300</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            12/5 Priority Support
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            8h Fast Response
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            Quarterly Strategic Review
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            Dedicated Account Manager
+                        </li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl bg-primary text-white font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/30">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Card: VIP Enterprise -->
+                <div class="bg-card-light dark:bg-card-dark p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col hover:shadow-xl transition-shadow relative overflow-hidden group">
+                    <div class="mb-8">
+                        <h3 class="font-bold text-xl mb-2">VIP Enterprise</h3>
+                        <p class="text-slate-500 text-sm">Full-scale support for critical operations.</p>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-4xl font-extrabold text-slate-900 dark:text-white" id="price-card-3">$2,499</div>
+                        <p class="text-xs text-green-600 dark:text-green-400 mt-2 font-bold" id="save-card-3">Save $1,000+</p>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">stars</span>
+                            24/7 VIP Dedicated Support
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">stars</span>
+                            4h Urgent Response
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">stars</span>
+                            Monthly Security Audits
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                            <span class="material-symbols-outlined text-primary text-xl">stars</span>
+                            Infrastructure Optimization
+                        </li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+                        Contact Sales
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         FAQ
+    ============================== -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    Find answers to common questions about our solutions, services, and company
+                </p>
+            </div>
+
+            <div class="space-y-4">
+
+                <details class="group bg-card-light dark:bg-card-dark rounded-xl border border-slate-200 dark:border-slate-800" open>
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold list-none">
+                        What digital transformation solutions do you offer?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        We offer a comprehensive suite of digital transformation services including ERP implementation,
+                        cloud migration, AI-powered automation, and custom software development tailored to your specific business needs.
+                    </div>
+                </details>
+
+                <details class="group bg-card-light dark:bg-card-dark rounded-xl border border-slate-200 dark:border-slate-800">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold list-none">
+                        How long does it take to implement your solutions?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        Timeline varies by project scope. Simple SaaS integrations can take days, while comprehensive ERP systems
+                        may take 3-6 months for full deployment and training.
+                    </div>
+                </details>
+
+                <details class="group bg-card-light dark:bg-card-dark rounded-xl border border-slate-200 dark:border-slate-800">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold list-none">
+                        Do you provide ongoing support after implementation?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        Yes, we offer 24/7 technical support, regular system updates, and ongoing consultation to ensure your
+                        digital solutions continue to drive value for your business.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         SCRIPTS
+    ============================== -->
+    <script>
+        // --- Pricing Toggle ---
+        document.querySelectorAll('.pricing-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.pricing-tab-btn').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white', 'shadow-lg');
+                    b.classList.add('text-slate-500', 'hover:bg-slate-200', 'dark:hover:bg-slate-700');
+                });
+                btn.classList.add('bg-primary', 'text-white', 'shadow-lg');
+                btn.classList.remove('text-slate-500', 'hover:bg-slate-200', 'dark:hover:bg-slate-700');
+
+                const target = btn.getAttribute('data-target');
+                const p1 = document.getElementById('price-card-1');
+                const p2 = document.getElementById('price-card-2');
+                const p3 = document.getElementById('price-card-3');
+                const s1 = document.getElementById('save-card-1');
+                const s2 = document.getElementById('save-card-2');
+                const s3 = document.getElementById('save-card-3');
+
+                if (target === 'monthly') {
+                    p1.innerHTML = '$299<span class="text-base font-normal text-slate-500">/mo</span>';
+                    p2.innerHTML = '$399<span class="text-base font-normal text-slate-500">/mo</span>';
+                    p3.innerHTML = '$599<span class="text-base font-normal text-slate-500">/mo</span>';
+                    s1.style.opacity = '0';
+                    s2.style.opacity = '0';
+                    s3.style.opacity = '0';
+                } else if (target === 'semi-annual') {
+                    p1.innerHTML = '$1,499';
+                    p2.innerHTML = '$1,499';
+                    p3.innerHTML = '$2,899';
+                    s1.innerText = 'Save $300'; s1.style.opacity = '1';
+                    s2.innerText = 'Save $300'; s2.style.opacity = '1';
+                    s3.innerText = 'Save $600'; s3.style.opacity = '1';
+                } else if (target === 'annual') {
+                    p1.innerHTML = '$2,499';
+                    p2.innerHTML = '$2,999';
+                    p3.innerHTML = '$2,499';
+                    s1.innerText = 'Save $1,000+'; s1.style.opacity = '1';
+                    s2.innerText = 'Save $1,200+'; s2.style.opacity = '1';
+                    s3.innerText = 'Save $1,000+'; s3.style.opacity = '1';
+                }
+            });
+        });
+
+        // --- Expertise Tabs ---
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white', 'shadow-lg');
+                    b.classList.add('text-slate-500', 'hover:bg-slate-200', 'dark:hover:bg-slate-800');
+                });
+                btn.classList.add('bg-primary', 'text-white', 'shadow-lg');
+                btn.classList.remove('text-slate-500', 'hover:bg-slate-200', 'dark:hover:bg-slate-800');
+
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
